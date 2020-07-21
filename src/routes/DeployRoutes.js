@@ -7,7 +7,7 @@ import ForgotPassword from './ForgotPassword';
 const DeployRoutes = () => {
     return (
         <Switch>
-            <Route path="/CreateAccount">
+            <Route path="./CreateAccount">
                 <CreateAccount />
             </Route>
             <Route path="/Login">
