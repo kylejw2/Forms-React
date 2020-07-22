@@ -16,11 +16,20 @@ class App extends React.Component {
     );
   }
 
+  validateUser(user) {
+    const userInfo = this.state.data.filter(ele => {
+      if (ele.username === user.username && ele.password === user.password) {
+        return ele;
+      }
+    });
+    console.log(userInfo);
+  }
+
   render() {
     return (
       <Router>
         <div>
-          <DeployRoutes createUser={user => this.createUser(user)}/>
+          <DeployRoutes createUser={user => this.createUser(user)} validateUser={user => this.validateUser(user)}/>
           <Menu />
         </div>
       </Router>

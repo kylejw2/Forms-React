@@ -12,7 +12,7 @@ class DeployRoutes extends React.Component {
                 <CreateAccount createUser={user => this.props.createUser(user)} />
             </Route>
             <Route path="/Login">
-                <Login />
+                <Login validateUser={user => this.props.validateUser(user)} />
             </Route>
             <Route path="/ForgotPassword">
                 <ForgotPassword />
