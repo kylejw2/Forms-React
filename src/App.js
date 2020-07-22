@@ -6,7 +6,8 @@ import DeployRoutes from './routes/DeployRoutes';
 
 class App extends React.Component {
   state = {
-    data: []
+    data: [],
+    loginSuccess: null
   }
 
   createUser(user) {
@@ -25,7 +26,11 @@ class App extends React.Component {
         break;
       }
     }
-    console.log(userInfo);
+    if (userInfo) {
+      this.setState({loginSuccess: true})
+    } else {
+      this.setState({loginSuccess: false})
+    }
   }
 
   updatePassword(user) {
@@ -49,6 +54,11 @@ class App extends React.Component {
   }
 
   render() {
+    
+    // const loginValid = () => {
+    //   if (this.state.loginSuccess === true) {return <h3>Login successful</h3>}
+    //   else if (this.state.loginSuccess === false) {return <h3>Login failed</h3>}
+    // }
     return (
       <Router>
         <div>
@@ -56,7 +66,9 @@ class App extends React.Component {
             createUser={user => this.createUser(user)} 
             validateUser={user => this.validateUser(user)}
             updatePassword={user => this.updatePassword(user)}
+            loginSuccess={this.state.loginSuccess}
           />
+          {/* <div>{loginValid()}</div> */}
           <Menu />
         </div>
       </Router>

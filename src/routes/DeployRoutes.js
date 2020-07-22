@@ -8,16 +8,16 @@ class DeployRoutes extends React.Component {
     render() {
         return (
             <Switch>
-            <Route path="/CreateAccount" >
-                <CreateAccount createUser={user => this.props.createUser(user)} />
-            </Route>
-            <Route path="/Login">
-                <Login validateUser={user => this.props.validateUser(user)} />
-            </Route>
-            <Route path="/ForgotPassword">
-                <ForgotPassword updatePassword={user => this.props.updatePassword(user)} />
-            </Route>
-        </Switch>
+                <Route path="/CreateAccount" >
+                    <CreateAccount createUser={user => this.props.createUser(user)} />
+                </Route>
+                <Route path="/Login">
+                    <Login validateUser={user => this.props.validateUser(user)} loginSuccess={this.props.loginSuccess}/>
+                </Route>
+                <Route path="/ForgotPassword">
+                    <ForgotPassword updatePassword={user => this.props.updatePassword(user)} />
+                </Route>
+            </Switch>
         );
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Route, Switch } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props) {
@@ -9,7 +10,6 @@ class Login extends React.Component {
         }
         this.handleOnChange = this.handleOnChange.bind(this);
     }
-    
 
     handleOnChange(event) {
         const target = event.target;
@@ -17,17 +17,26 @@ class Login extends React.Component {
             [target.name]: target.value
         });
     }
-    
+
     render() {
+        const loginSuccessful = this.props.loginSuccess;
+        const wasSuccess = () => {
+            if (loginSuccessful === true) {return <h2>Login successful</h2>}
+            else if (loginSuccessful === false) {return <h2>Login failed</h2>}
+        }
+
         return (
-            <form>
-                <h1>Log in</h1>
-                <input type='text' name='username' value={this.state.username} onChange={this.handleOnChange} placeholder='Username'></input>
-                <br/>
-                <input type='password' name='password' value={this.state.password} onChange={this.handleOnChange} placeholder='Password'></input>
-                <br/>
-                <button type='submit' onClick={event => {event.preventDefault(); this.props.validateUser(this.state)}}>Log in</button>
-            </form>
+            <div>
+                <form>
+                    <h1>Log in</h1>
+                    <input type='text' name='username' value={this.state.username} onChange={this.handleOnChange} placeholder='Username'></input>
+                    <br/>
+                    <input type='password' name='password' value={this.state.password} onChange={this.handleOnChange} placeholder='Password'></input>
+                    <br/>
+                    <button type='submit' onClick={event => {event.preventDefault(); this.props.validateUser(this.state)}}>Log in</button>
+                </form>
+                <div>{wasSuccess()}</div>
+            </div>
         );
     }
 }
