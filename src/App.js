@@ -54,11 +54,6 @@ class App extends React.Component {
   }
 
   render() {
-    
-    // const loginValid = () => {
-    //   if (this.state.loginSuccess === true) {return <h3>Login successful</h3>}
-    //   else if (this.state.loginSuccess === false) {return <h3>Login failed</h3>}
-    // }
     return (
       <Router>
         <div>
@@ -68,7 +63,6 @@ class App extends React.Component {
             updatePassword={user => this.updatePassword(user)}
             loginSuccess={this.state.loginSuccess}
           />
-          {/* <div>{loginValid()}</div> */}
           <Menu />
         </div>
       </Router>
