@@ -15,7 +15,7 @@ class DeployRoutes extends React.Component {
                 <Login validateUser={user => this.props.validateUser(user)} />
             </Route>
             <Route path="/ForgotPassword">
-                <ForgotPassword />
+                <ForgotPassword updatePassword={user => this.props.updatePassword(user)} />
             </Route>
         </Switch>
         );
