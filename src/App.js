@@ -4,17 +4,28 @@ import './App.css';
 import Menu from './routes/Menu';
 import DeployRoutes from './routes/DeployRoutes';
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <DeployRoutes />
-        <nav>
+class App extends React.Component {
+  state = {
+    data: []
+  }
+
+  createUser(user) {
+    this.setState({
+      data: this.state.data.concat(user)},
+      () => console.log(this.state)
+    );
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <DeployRoutes createUser={user => this.createUser(user)}/>
           <Menu />
-        </nav>
-      </div>
-    </Router>
-  );
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

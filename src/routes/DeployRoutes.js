@@ -1,14 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import CreateAccount from './CreateAccount';
-import Login from './Login';
-import ForgotPassword from './ForgotPassword';
+import CreateAccount from '../pages/CreateAccount';
+import Login from '../pages/Login';
+import ForgotPassword from '../pages/ForgotPassword';
 
-const DeployRoutes = () => {
-    return (
-        <Switch>
-            <Route path="./CreateAccount">
-                <CreateAccount />
+class DeployRoutes extends React.Component {
+    render() {
+        return (
+            <Switch>
+            <Route path="/CreateAccount" >
+                <CreateAccount createUser={user => this.props.createUser(user)} />
             </Route>
             <Route path="/Login">
                 <Login />
@@ -17,7 +18,8 @@ const DeployRoutes = () => {
                 <ForgotPassword />
             </Route>
         </Switch>
-    );
+        );
+    }
 }
 
 export default DeployRoutes;
