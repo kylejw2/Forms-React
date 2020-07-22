@@ -17,11 +17,14 @@ class App extends React.Component {
   }
 
   validateUser(user) {
-    const userInfo = this.state.data.filter(ele => {
-      if (ele.username === user.username && ele.password === user.password) {
-        return ele;
+    let userInfo = null;
+    for (let i = 0; i < this.state.data.length; i++) {
+      const current = this.state.data[i];
+      if (current.username === user.username && current.password === user.password) {
+        userInfo = current;
+        break;
       }
-    });
+    }
     console.log(userInfo);
   }
 
